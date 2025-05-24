@@ -39,7 +39,7 @@ def download_image(url, image_id, output_dir):
         print(f"Failed to download image {image_id}: {str(e)}")
         return False, image_id, str(e)
 
-def create_dataset(json_file_path, max_workers=5):
+def create_dataset(json_file_path, max_workers=7):
     """
     Create image dataset from JSON file.
     
@@ -49,7 +49,7 @@ def create_dataset(json_file_path, max_workers=5):
     """
     
     # Create output directory
-    output_dir = Path("img")
+    output_dir = Path("fashion-app/imat_data/img")
     output_dir.mkdir(exist_ok=True)
     
     # Load JSON data
@@ -124,10 +124,10 @@ def create_dataset(json_file_path, max_workers=5):
 
 if __name__ == "__main__":
     # Usage example
-    json_file = "images.json"  # Replace with your JSON file path
+    json_file = "fashion-app/imat_data/train.json"  # Replace with your JSON file path
     
     # Create the dataset
-    create_dataset(json_file, max_workers=5)
+    create_dataset(json_file, max_workers=7)
     
     # Alternative: If you have the JSON data as a string or dict
     # You can also use it directly like this:

@@ -10,6 +10,7 @@ with open('fashion-app/imat_data/test.json', 'r') as f:
     data = json.load(f)
 
 
+print(data.keys())
 annotations = data['annotations']
 annotations_train = []
 for i in range(len(annotations)):

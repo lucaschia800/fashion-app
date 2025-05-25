@@ -6,7 +6,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from urllib.parse import urlparse
 import time
 
-with open('fashion-app/imat_data/test.json', 'r') as f:
+with open('fashion-app/imat_data/train.json', 'r') as f:
     data = json.load(f)
 
 

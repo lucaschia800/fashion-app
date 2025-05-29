@@ -89,6 +89,7 @@ def train_model(model, data_loader, val_loader, optimizer, device, criterion, nu
         for epoch in tqdm(range(num_epochs), desc = "Training"):
             model.train()
             epoch_loss = 0.0
+            val_loss = None  
             for images, labels in tqdm(data_loader, leave = False):
 
 
@@ -171,10 +172,10 @@ if __name__ == "__main__":
     # Create datasets and instantiate dataloader
     batch_size = 128
     lr = 5e-4
-    training_data = CustomDataset("imat_data/train_annotations.json", "Train", transforms=get_transform())
+    training_data = CustomDataset("imat_data/train_annos_relabel.json", "Train", transforms=get_transform())
     train_loader = DataLoader(training_data, batch_size= batch_size, shuffle=True, num_workers= 6)
 
-    validation_data = CustomDataset("imat_data/val_annotations.json" , "Val", transforms=get_transform())
+    validation_data = CustomDataset("imat_data/val_annos_relabel.json" , "Val", transforms=get_transform())
     val_loader = DataLoader(validation_data, batch_size = batch_size,  num_workers = 6)
 
     num_classes = 131

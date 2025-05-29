@@ -39,7 +39,7 @@ class CustomDataset(Dataset):
         return image, labels
 
     def __len__(self):
-        return len(self.image_paths)
+        return len(self.data)
 
 
 def get_transform():

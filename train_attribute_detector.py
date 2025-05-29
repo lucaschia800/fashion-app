@@ -21,8 +21,7 @@ class CustomDataset(Dataset):
         data = json.load(open(data_path, 'r'))
         self.split = split
         self.transforms = transforms
-        self.image_paths = data['images']
-        self.labels = data['annotations']
+        self.data = data['annotations']
 
     def __getitem__(self, idx):
 

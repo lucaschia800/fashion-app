@@ -17,20 +17,22 @@ import json
 import copy
 
 class CustomDataset(Dataset):
-    def __init__(self, data_path, transforms=None):
+    def __init__(self, data_path, split, transforms=None):
         data = json.load(open(data_path, 'r'))
+        self.split = split
         self.transforms = transforms
         self.image_paths = data['images']
         self.labels = data['annotations']
 
     def __getitem__(self, idx):
 
-        image = self.image_paths[idx]['imageId']
-        image = Image.open(image).convert("RGB")
+        image_path = "imat_data/img" + self.image_paths[idx]['imageId'] + ".jpg" if self.split == "Train" \
+            else "imat_data/img_val" + self.image_paths[idx]['imageId'] + ".jpg"
+        image = Image.open(image_path).convert("RGB")
 
         labels = [int(label) for label in self.labels[idx]['labelId']]
         labels = torch.tensor(labels, dtype=torch.long)
-        labels = F.one_hot(labels, num_classes=131) 
+        labels = F.one_hot(labels, num_classes=131).sum(dim=0).float()
         if self.transforms is not None:
             image = self.transforms(image)
 
@@ -59,14 +61,14 @@ def get_model(num_classes = 131):
 
     # Unfreeze last few layers for fine-tuning
     for name, param in model.named_parameters():
-        if "clasifier" in name:
+        if "classifier" in name:
             param.requires_grad = True
         else:
             param.requires_grad = False
 
     return model
 
-def train_model(model, data_loader, val_loader, optimizer, device, batch_size, num_epochs=75):
+def train_model(model, data_loader, val_loader, optimizer, device, criterion, num_epochs=75):
     model.to(device)
 
     best_loss = float('inf')
@@ -78,27 +80,26 @@ def train_model(model, data_loader, val_loader, optimizer, device, batch_size, n
 
         mlflow.log_params({
             "model_type": "efficientnet_v2_m",
-            "batch_size": train_loader.batch_size,
+            "batch_size": data_loader.batch_size,
             "learning_rate": optimizer.param_groups[0]['lr'],
             "num_epochs": num_epochs,
             "optimizer": type(optimizer).__name__
         })
 
-        for epoch in range(num_epochs):
+        for epoch in tqdm(range(num_epochs), desc = "Training"):
             model.train()
             epoch_loss = 0.0
-            for i, (images, labels) in enumerate(data_loader):
+            for images, labels in tqdm(data_loader, leave = False):
 
 
 
-                images = list(image.to(device) for image in images)
-                labels = [[label.to(device) for label in labels] for labels in labels]
+                images = images.to(device)
+                labels = labels.to(device)
 
                 optimizer.zero_grad()
                 with torch.cuda.amp.autocast(dtype=torch.bfloat16):
                     output = model(images)
-                    loss = criterion(output, labels.float())#Investigate whether I should be using the sum of all losses
-
+                    loss = criterion(output, labels.float())
                 
                 loss.backward()
                 optimizer.step()
@@ -107,14 +108,8 @@ def train_model(model, data_loader, val_loader, optimizer, device, batch_size, n
 
             print(f"Epoch {epoch+1}/{num_epochs}, Loss: {loss}")
 
-            mlflow.log_metrics({
-                "epoch": epoch,
-                "train_loss": loss / len(train_loader),
-                "val_loss": val_loss,
-            }, step=epoch)
-
             if epoch >= 10:
-                val_loss = validate(model, val_loader, device)
+                val_loss = validate(model, val_loader, criterion, device)
 
                 if val_loss < best_loss:
                     best_loss = val_loss
@@ -126,11 +121,20 @@ def train_model(model, data_loader, val_loader, optimizer, device, batch_size, n
                         print('Early stop at epoch:' + str(epoch))
                         early_stop = True
                         break
-
+            metrics = {
+                "epoch": epoch,
+                "train_loss": loss,  
+            }
+            if val_loss is not None:
+                metrics["val_loss"] = val_loss
+            
+            mlflow.log_metrics(metrics, step=epoch)
     if early_stop:
         return best_model_weights
     else:
         return model.state_dict()
+    
+
 
 def validate(model, data_loader, criterion, device):
     model.eval()
@@ -138,10 +142,10 @@ def validate(model, data_loader, criterion, device):
     print('Validating...')  
 
     with torch.no_grad():
-        for images, targets in data_loader:
+        for images, targets in tqdm(data_loader, desc="Validating", leave=False):
             
-            images = list(image.to(device) for image in images)
-            targets = [[target.to(device) for target in targets] for targets in targets]
+            images = images.to(device)
+            targets =  targets.to(device)
             
            
             with torch.cuda.amp.autocast(dtype=torch.bfloat16):
@@ -167,10 +171,10 @@ if __name__ == "__main__":
     # Create datasets and instantiate dataloader
     batch_size = 128
     lr = 5e-4
-    training_data = CustomDataset("imat_data/train_annotations.json", transforms=get_transform())
+    training_data = CustomDataset("imat_data/train_annotations.json", "Train", transforms=get_transform())
     train_loader = DataLoader(training_data, batch_size= batch_size, shuffle=True, num_workers= 6)
 
-    validation_data = CustomDataset("imat_data/val_annotations.json" , transforms=get_transform())
+    validation_data = CustomDataset("imat_data/val_annotations.json" , "Val", transforms=get_transform())
     val_loader = DataLoader(validation_data, batch_size = batch_size,  num_workers = 6)
 
     num_classes = 131
@@ -186,4 +190,4 @@ if __name__ == "__main__":
 
 
 
-    torch.save(train_model(model, train_loader, val_loader, optimizer, device, criterion, batch_size),'Fefficientnet.pth')
+    torch.save(train_model(model, train_loader, val_loader, optimizer, device, criterion),'Fefficientnet.pth')

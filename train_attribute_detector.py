@@ -25,8 +25,8 @@ class CustomDataset(Dataset):
 
     def __getitem__(self, idx):
 
-        image_path = "imat_data/img" + self.data[idx]['imageId'] + ".jpg" if self.split == "Train" \
-            else "imat_data/img_val" + self.data[idx]['imageId'] + ".jpg"
+        image_path = "imat_data/img/" + self.data[idx]['imageId'] + ".jpg" if self.split == "Train" \
+            else "imat_data/img_val/" + self.data[idx]['imageId'] + ".jpg"
         image = Image.open(image_path).convert("RGB")
 
         labels = [int(label) for label in self.data[idx]['labelId']]

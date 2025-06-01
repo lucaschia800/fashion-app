@@ -197,7 +197,7 @@ if __name__ == "__main__":
         {'params': backbone_params, 'lr': lr * 0.1},  # Backbone with lower learning rate
         {'params': classifier_params, 'lr': lr}  # Classifier with higher learning rate
     ]
-    optimizer = torch.optim.AdamW(param_groups, betas=(0.9, 0.999), weight_decay=1e)
+    optimizer = torch.optim.AdamW(param_groups, betas=(0.9, 0.999), weight_decay=1e-2)
     criterion = nn.BCEWithLogitsLoss()
 
 

@@ -29,7 +29,6 @@ class CustomDataset(Dataset):
         labels = [int(label) for label in self.data[idx]['labelId']]
         labels = torch.tensor(labels, dtype=torch.long)
         labels_onehot = F.one_hot(labels, num_classes=131).sum(dim=0)
-        print(f"After one-hot sum: {labels_onehot.unique()}")
         if self.transforms is not None:
             image = self.transforms(image)
 
@@ -117,7 +116,7 @@ def save_metrics(per_class_ap, mean_ap, save_path):
 batch_size = 128
 device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
 
-validation_data = CustomDataset("imat_data/val_annos_relabel.json" , "Val", transforms=get_transform())
+validation_data = CustomDataset("imat_data/val_annos_clean.json" , "Val", transforms=get_transform())
 val_loader = DataLoader(validation_data, batch_size = batch_size,  num_workers = 6)
 
 per_class_ap, macro_ap = eval_fefficient(get_model(path = "weights/Fefficientnet_pt2.pth"), val_loader, device)

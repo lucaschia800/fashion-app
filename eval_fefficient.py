@@ -28,12 +28,13 @@ class CustomDataset(Dataset):
 
         labels = [int(label) for label in self.data[idx]['labelId']]
         labels = torch.tensor(labels, dtype=torch.long)
-        labels = F.one_hot(labels, num_classes=131).sum(dim=0)
+        labels_onehot = F.one_hot(labels, num_classes=131).sum(dim=0)
+        print(f"After one-hot sum: {labels_onehot.unique()}")
         if self.transforms is not None:
             image = self.transforms(image)
 
 
-        return image, labels
+        return image, labels_onehot
 
     def __len__(self):
         return len(self.data)
@@ -121,5 +122,5 @@ val_loader = DataLoader(validation_data, batch_size = batch_size,  num_workers =
 
 per_class_ap, macro_ap = eval_fefficient(get_model(path = "weights/Fefficientnet_pt2.pth"), val_loader, device)
 
-save_metrics(per_class_ap, macro_ap, save_path="eval_res/validation_metrics.json")
+save_metrics(per_class_ap.cpu(), macro_ap.cpu(), save_path="eval_res/validation_metrics.json")
 

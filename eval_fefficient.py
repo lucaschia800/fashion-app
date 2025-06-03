@@ -119,7 +119,7 @@ device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cp
 validation_data = CustomDataset("imat_data/val_annos_relabel.json" , "Val", transforms=get_transform())
 val_loader = DataLoader(validation_data, batch_size = batch_size,  num_workers = 6)
 
-per_class_ap, macro_ap = eval_fefficient(get_model(path = "imat_data/efficientnet_v2_m.pth"), val_loader, device)
+per_class_ap, macro_ap = eval_fefficient(get_model(path = "weights/Fefficientnet_pt2.pth"), val_loader, device)
 
 save_metrics(per_class_ap, macro_ap, save_path="eval_res/validation_metrics.json")
 

@@ -173,7 +173,7 @@ if __name__ == "__main__":
 
 
     # Create datasets and instantiate dataloader
-    batch_size = 128
+    batch_size = 64
     lr = 5e-4
     training_data = CustomDataset("imat_data/train_annos_relabel.json", "Train", transforms=get_transform())
     train_loader = DataLoader(training_data, batch_size= batch_size, shuffle=True, num_workers= 6)

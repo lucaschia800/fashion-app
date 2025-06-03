@@ -28,7 +28,7 @@ class CustomDataset(Dataset):
 
         labels = [int(label) for label in self.data[idx]['labelId']]
         labels = torch.tensor(labels, dtype=torch.long)
-        labels = F.one_hot(labels, num_classes=131).sum(dim=0).float()
+        labels = F.one_hot(labels, num_classes=131).sum(dim=0)
         if self.transforms is not None:
             image = self.transforms(image)
 

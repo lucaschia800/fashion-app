@@ -6,6 +6,30 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from urllib.parse import urlparse
 import time
 
+def find_last_downloaded_index(images, output_dir):
+    """Find the index of the last successfully downloaded image in sequence."""
+    if not output_dir.exists():
+        return 0
+    
+    existing_image_ids = set()
+    for file_path in output_dir.glob("*"):
+        if file_path.is_file() and not file_path.name.endswith('.json'):
+            image_id = file_path.stem
+            existing_image_ids.add(image_id)
+    
+    if not existing_image_ids:
+        return 0
+    
+    # Find the highest imageId that was downloaded
+    max_downloaded_id = max(existing_image_ids, key=lambda x: int(x) if x.isdigit() else 0)
+    
+    # Find its position in the images list
+    for i, img in enumerate(images):
+        if str(img['imageId']) == max_downloaded_id:
+            return i + 1  # Start from next position
+    
+    return 0
+
 def download_image(url, image_id, output_dir):
     """Download a single image and save it with the imageId as filename."""
     try:
@@ -49,7 +73,7 @@ def create_dataset(json_file_path, max_workers=7):
     """
     
     # Create output directory
-    output_dir = Path("fashion-app/imat_data/img_val")
+    output_dir = Path("imat_data/img_val")
     output_dir.mkdir(exist_ok=True)
     
     # Load JSON data
@@ -68,8 +92,21 @@ def create_dataset(json_file_path, max_workers=7):
         print("No images found in JSON data")
         return
     
-    print(f"Found {len(images)} images to download")
+    print(f"Total images in dataset: {len(images)}")
     print(f"Output directory: {output_dir.absolute()}")
+    
+    # Find resume point
+    resume_index = find_last_downloaded_index(images, output_dir)
+    print(f"Resuming from index: {resume_index}")
+    print(f"Already downloaded: {resume_index} images")
+    print(f"Remaining: {len(images) - resume_index} images")
+    
+    if resume_index >= len(images):
+        print("All images already downloaded!")
+        return
+    
+    # Get images to download (from resume point)
+    images_to_download = images[resume_index:]
     
     # Download images concurrently
     successful_downloads = 0
@@ -81,7 +118,7 @@ def create_dataset(json_file_path, max_workers=7):
         # Submit all download tasks
         future_to_image = {
             executor.submit(download_image, img['url'], img['imageId'], output_dir): img
-            for img in images
+            for img in images_to_download
         }
         
         # Process completed downloads
@@ -97,34 +134,39 @@ def create_dataset(json_file_path, max_workers=7):
     elapsed_time = end_time - start_time
     
     print(f"\n--- Download Summary ---")
-    print(f"Total images: {len(images)}")
+    print(f"Images processed this session: {len(images_to_download)}")
     print(f"Successful downloads: {successful_downloads}")
     print(f"Failed downloads: {len(failed_downloads)}")
     print(f"Time elapsed: {elapsed_time:.2f} seconds")
+    print(f"Total completion: {(resume_index + successful_downloads)}/{len(images)} ({((resume_index + successful_downloads)/len(images))*100:.1f}%)")
     
     if failed_downloads:
         print(f"\nFailed downloads:")
-        for image_id, error in failed_downloads:
+        for image_id, error in failed_downloads[:10]:
             print(f"  Image {image_id}: {error}")
+        if len(failed_downloads) > 10:
+            print(f"  ... and {len(failed_downloads) - 10} more")
     
     # Create a summary file
     summary = {
         "total_images": len(images),
+        "resume_index": resume_index,
         "successful_downloads": successful_downloads,
         "failed_downloads": len(failed_downloads),
         "failed_list": failed_downloads,
-        "download_time_seconds": elapsed_time
+        "download_time_seconds": elapsed_time,
+        "completion_percentage": ((resume_index + successful_downloads)/len(images))*100
     }
     
     with open(output_dir / "download_summary.json", 'w') as f:
         json.dump(summary, f, indent=2)
     
-    print(f"\nDataset created in '{output_dir}' folder")
+    print(f"\nDataset updated in '{output_dir}' folder")
     print(f"Summary saved to '{output_dir}/download_summary.json'")
 
 if __name__ == "__main__":
     # Usage example
-    json_file = "fashion-app/imat_data/validation.json"  # Replace with your JSON file path
+    json_file = "imat_data/validation.json"  # Replace with your JSON file path
     
     # Create the dataset
     create_dataset(json_file, max_workers=7)

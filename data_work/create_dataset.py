@@ -73,7 +73,7 @@ def create_dataset(json_file_path, max_workers=7):
     """
     
     # Create output directory
-    output_dir = Path("imat_data/img_val")
+    output_dir = Path("imat_data/img")
     output_dir.mkdir(exist_ok=True)
     
     # Load JSON data
@@ -166,7 +166,7 @@ def create_dataset(json_file_path, max_workers=7):
 
 if __name__ == "__main__":
     # Usage example
-    json_file = "imat_data/validation.json"  # Replace with your JSON file path
+    json_file = "imat_data/train.json"  # Replace with your JSON file path
     
     # Create the dataset
     create_dataset(json_file, max_workers=7)

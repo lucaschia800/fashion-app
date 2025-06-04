@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/gscratch/stf/lbc800/fashion-app/eval_fefficient.py", line 119, in <module>
+    validation_data = CustomDataset("imat_data/val_annos_clean.json" , "Val", transforms=get_transform())
+  File "/gscratch/stf/lbc800/fashion-app/eval_fefficient.py", line 18, in __init__
+    data = json.load(open(data_path, 'r'))
+FileNotFoundError: [Errno 2] No such file or directory: 'imat_data/val_annos_clean.json'

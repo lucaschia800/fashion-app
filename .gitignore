@@ -2,3 +2,4 @@ imat_data/train.json
 imat_data/test.json
 imat_data/validation.json
 imat_data
+weights

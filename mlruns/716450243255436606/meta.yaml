@@ -1,0 +1,6 @@
+artifact_location: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606
+creation_time: 1748519003909
+experiment_id: '716450243255436606'
+last_update_time: 1748519003909
+lifecycle_stage: active
+name: Fefficientnet_M

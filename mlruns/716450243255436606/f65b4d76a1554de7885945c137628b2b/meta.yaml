@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/f65b4d76a1554de7885945c137628b2b/artifacts
+end_time: 1748580423098
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: f65b4d76a1554de7885945c137628b2b
+run_name: amusing-quail-540
+run_uuid: f65b4d76a1554de7885945c137628b2b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748580406863
+status: 4
+tags: []
+user_id: lbc800

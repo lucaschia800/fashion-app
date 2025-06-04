@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/6a73178070524c89925a4b4bff341524/artifacts
+end_time: 1748596475939
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: 6a73178070524c89925a4b4bff341524
+run_name: salty-stag-979
+run_uuid: 6a73178070524c89925a4b4bff341524
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748583329676
+status: 3
+tags: []
+user_id: lbc800

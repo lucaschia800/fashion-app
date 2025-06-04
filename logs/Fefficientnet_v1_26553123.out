@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/gscratch/stf/lbc800/fashion-app/train_attribute_detector.py", line 175, in <module>
+    training_data = CustomDataset("imat_data/train_annos_relabel.json", "Train", transforms=get_transform())
+  File "/gscratch/stf/lbc800/fashion-app/train_attribute_detector.py", line 24, in __init__
+    self.image_paths = data['images']
+KeyError: 'images'

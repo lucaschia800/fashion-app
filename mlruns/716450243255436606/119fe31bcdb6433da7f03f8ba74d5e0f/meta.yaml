@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/119fe31bcdb6433da7f03f8ba74d5e0f/artifacts
+end_time: 1748822382762
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: 119fe31bcdb6433da7f03f8ba74d5e0f
+run_name: flawless-lynx-752
+run_uuid: 119fe31bcdb6433da7f03f8ba74d5e0f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748816749605
+status: 3
+tags: []
+user_id: lbc800

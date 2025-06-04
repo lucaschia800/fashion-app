@@ -1,0 +1,15 @@
+  0%|          | 0/47 [00:00<?, ?it/s]  0%|          | 0/47 [00:33<?, ?it/s]
+Traceback (most recent call last):
+  File "/gscratch/stf/lbc800/fashion-app/eval_fefficient.py", line 122, in <module>
+    per_class_ap, macro_ap = eval_fefficient(get_model(path = "weights/Fefficientnet_pt2.pth"), val_loader, device)
+  File "/gscratch/stf/lbc800/fashion-app/eval_fefficient.py", line 85, in eval_fefficient
+    map_metric.update(outputs, labels)
+  File "/usr/local/lib/python3.10/dist-packages/torchmetrics/metric.py", line 549, in wrapped_func
+    update(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torchmetrics/classification/precision_recall_curve.py", line 562, in update
+    _multilabel_precision_recall_curve_tensor_validation(preds, target, self.num_labels, self.ignore_index)
+  File "/usr/local/lib/python3.10/dist-packages/torchmetrics/functional/classification/precision_recall_curve.py", line 737, in _multilabel_precision_recall_curve_tensor_validation
+    _binary_precision_recall_curve_tensor_validation(preds, target, ignore_index)
+  File "/usr/local/lib/python3.10/dist-packages/torchmetrics/functional/classification/precision_recall_curve.py", line 140, in _binary_precision_recall_curve_tensor_validation
+    raise ValueError(
+ValueError: Expected argument `target` to be an int or long tensor with ground truth labels but got tensor with dtype torch.float32

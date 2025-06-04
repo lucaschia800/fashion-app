@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/21250406e43e4172a38f422e856dc591/artifacts
+end_time: 1748580906449
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: 21250406e43e4172a38f422e856dc591
+run_name: honorable-snipe-801
+run_uuid: 21250406e43e4172a38f422e856dc591
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748580893124
+status: 4
+tags: []
+user_id: lbc800

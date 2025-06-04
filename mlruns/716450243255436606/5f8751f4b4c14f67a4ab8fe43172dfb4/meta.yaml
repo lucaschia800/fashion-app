@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/5f8751f4b4c14f67a4ab8fe43172dfb4/artifacts
+end_time: 1748580158914
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: 5f8751f4b4c14f67a4ab8fe43172dfb4
+run_name: exultant-seal-382
+run_uuid: 5f8751f4b4c14f67a4ab8fe43172dfb4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748580146042
+status: 4
+tags: []
+user_id: lbc800

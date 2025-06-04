@@ -1,0 +1,4 @@
+  File "/gscratch/stf/lbc800/fashion-app/cpt_attribute.py", line 200
+    optimizer = torch.optim.AdamW(param_groups, betas=(0.9, 0.999), weight_decay=1e)
+                                                                                 ^
+SyntaxError: invalid decimal literal

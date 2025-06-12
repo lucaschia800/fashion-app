@@ -5,17 +5,16 @@ import torch.nn.functional as F
 from torch.utils.data import Dataset
 from torchvision.transforms import v2  
 import torchvision.datasets as datasets
-from torchvision.models import efficientnet_v2_m
 from torchvision.models import EfficientNet_V2_M_Weights
 import os
 from tqdm import tqdm 
 from PIL import Image
 import numpy as np
-import mlflow
-import mlflow.pytorch
 import json
 import copy
 import typing
+from torchvision.models import efficientnet_v2_m
+
 
 
 class MultiHead_FEfficientNet(nn.Module):
@@ -25,48 +24,47 @@ class MultiHead_FEfficientNet(nn.Module):
     
     def __init__(
         self,
-        model_name: str = 'efficientnet_b3',
-        attribute_configs: List[AttributeConfig] = None,
-        pretrained: bool = True,
-        dropout_rate: float = 0.3
+        dropout_rate: float = 0.3,
+        categories = {'gender' : 3, 'material' : 23, 'pattern' : 18, 'style' : 10, 'sleeve' : 4, 'category': 48, 'color' : 19},
+        ckpt_path = None
     ):
         super().__init__()
     
         # Store configuration
-        self.attribute_configs = attribute_configs or []
         self.dropout_rate = dropout_rate
+        self.categories = categories
+        self.ckpt_path = ckpt_path
         
-        # Load pretrained EfficientNet backbon
+
         weights = EfficientNet_V2_M_Weights.DEFAULT
         self.backbone = efficientnet_v2_m(weights=weights)  
+        
         # Get feature dimension from backbone
         self.feature_dim = self.backbone.classifier[1].in_features
+        self.backbone.classifier = nn.Identity()  # Remove classifier layer
         print(f"Backbone feature dimension: {self.feature_dim}")
         
-        # Create classifier heads
         self.classifier_heads = nn.ModuleDict()
         self._build_classifier_heads()
         
-        # Initialize weights for new heads
         self._initialize_heads()
     
     def _build_classifier_heads(self):
         """Build classifier heads for each attribute"""
-        for config in self.attribute_configs:
+        for category, num_classes in self.categories.items():
             head = self._create_classifier_head(
-                num_classes=len(config.classes),
-                head_name=config.name
+                num_classes=num_classes, #131 aint right for this remember that
             )
-            self.classifier_heads[config.name] = head
+            self.classifier_heads[category] = head
     
-    def _create_classifier_head(self, num_classes: int, head_name: str) -> nn.Module:
+    def _create_classifier_head(self, num_classes):
         """
         Create a classifier head with batch norm and dropout
         """
         return nn.Sequential(
             nn.Dropout(self.dropout_rate),
-            nn.Linear(self.feature_dim, num_classes),
-            nn.SiLU(inplace=True),
+            nn.Linear(self.feature_dim, num_classes)
+
 
         )
     
@@ -96,20 +94,14 @@ class MultiHead_FEfficientNet(nn.Module):
         features = self.backbone(x)  # Shape: [batch_size, feature_dim]
         
         # Pass features through each classifier head
-        outputs = {}
-        for config in self.attribute_configs:
-            logits = self.classifier_heads[config.name](features)
+        output_logits = {}
+        for category in self.categories:
+            logits = self.classifier_heads[category](features)
+            output_logits[category] = logits
             
-            # Apply appropriate activation based on attribute type
-            if config.type == 'multiclass':
-                outputs[config.name] = F.softmax(logits, dim=1)
-            elif config.type == 'multilabel':
-                outputs[config.name] = torch.sigmoid(logits)
-            else:
-                # Return raw logits for custom processing
-                outputs[config.name] = logits
+            
                 
-        return outputs
+        return output_logits
     
     def get_features(self, x: torch.Tensor) -> torch.Tensor:
         """Extract features from backbone without classification"""
@@ -125,7 +117,7 @@ class MultiHead_FEfficientNet(nn.Module):
         for param in self.backbone.parameters():
             param.requires_grad = True
     
-    def get_trainable_parameters(self) -> Tuple[List, List]:
+    def get_trainable_parameters(self):
         """
         Get separate parameter groups for backbone and heads
         Useful for different learning rates
@@ -136,3 +128,31 @@ class MultiHead_FEfficientNet(nn.Module):
             head_params.extend(list(head.parameters()))
         
         return backbone_params, head_params
+    
+
+
+class FashionMultiHeadLoss(nn.Module):
+    def __init__(self, weights=None, categories = {'gender' : 3, 'material' : 23, 'pattern' : 18, 'style' : 10, 'sleeve' : 4, 'category': 48, 'color' : 19}):
+        super().__init__()
+        self.loss_function = nn.BCEWithLogitsLoss(reduction='mean') #default is mean
+        self.categories = categories
+        self.weights = weights if weights is not None else [1.0] * len(categories)
+    
+    def forward(self, predictions, targets):
+        total_loss = 0.0
+        loss_dict = {}
+        
+        for category in self.categories:
+            
+            # Calculate BCE loss
+            loss = self.loss_function(
+                predictions[category], 
+                targets[category].float()
+            )
+            
+            # Apply weight and add to total
+            weighted_loss = loss * self.weights[list(self.categories.keys()).index(category)]
+            total_loss += weighted_loss
+            loss_dict[f'{category}_loss'] = loss.item()
+        
+        return total_loss, loss_dict

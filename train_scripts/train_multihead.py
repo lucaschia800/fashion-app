@@ -144,4 +144,4 @@ if __name__ == "__main__":
 
 
 
-    torch.save(train_model(model, train_loader, val_loader, optimizer, device, criterion),'Fefficientnet.pth')
+    torch.save(train_model(model, train_loader, val_loader, optimizer, device, criterion),'Mefficientnet.pth')

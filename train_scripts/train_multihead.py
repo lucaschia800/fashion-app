@@ -128,7 +128,7 @@ if __name__ == "__main__":
     training_data = custom_dataset.CustomDataset("imat_data/train_annos_group_relabeled.json", "Train", transforms=transforms)
     train_loader = DataLoader(training_data, batch_size= batch_size, shuffle=True, num_workers= 6)
 
-    validation_data = custom_dataset.CustomDataset("imat_data/val_annos_group_relabel.json" , "Val", transforms=transforms)
+    validation_data = custom_dataset.CustomDataset("imat_data/val_annos_group_relabeled.json" , "Val", transforms=transforms)
     val_loader = DataLoader(validation_data, batch_size = batch_size,  num_workers = 6)
 
 

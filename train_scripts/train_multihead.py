@@ -52,7 +52,7 @@ def train_model(model, data_loader, val_loader, optimizer, device, criterion, nu
                 optimizer.zero_grad()
                 with torch.cuda.amp.autocast(dtype=torch.bfloat16):
                     output = model(images)
-                    loss = criterion(output, labels)
+                    loss, loss_dict = criterion(output, labels)
                 
                 loss.backward()
                 optimizer.step()
@@ -103,7 +103,7 @@ def validate(model, data_loader, criterion, device):
            
             with torch.cuda.amp.autocast(dtype=torch.bfloat16):
                 outputs = model(images)
-                loss = criterion(outputs, targets)
+                loss, loss_dict = criterion(outputs, targets)
             
             val_loss += loss.item()
 

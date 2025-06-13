@@ -122,7 +122,7 @@ if __name__ == "__main__":
 
 
     # Create datasets and instantiate dataloader
-    batch_size = 128
+    batch_size = 100
     lr = 5e-4
     transforms = EfficientNet_V2_M_Weights.DEFAULT.transforms()
     training_data = custom_dataset.CustomDataset("imat_data/train_annos_group_relabeled.json", "Train", transforms=transforms)

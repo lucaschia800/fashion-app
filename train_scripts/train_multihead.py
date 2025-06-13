@@ -52,7 +52,7 @@ def train_model(model, data_loader, val_loader, optimizer, device, criterion, nu
                 optimizer.zero_grad()
                 with torch.cuda.amp.autocast(dtype=torch.bfloat16):
                     output = model(images)
-                    loss = criterion(output, labels.float())
+                    loss = criterion(output, labels)
                 
                 loss.backward()
                 optimizer.step()

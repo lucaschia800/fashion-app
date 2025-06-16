@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/9872bded48744a90963e6291ab8fe458/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: 9872bded48744a90963e6291ab8fe458
+run_name: big-midge-835
+run_uuid: 9872bded48744a90963e6291ab8fe458
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749881165678
+status: 1
+tags: []
+user_id: lbc800

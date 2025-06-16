@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/9124befbb5a34c93a15f5cbabe91f57a/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: 9124befbb5a34c93a15f5cbabe91f57a
+run_name: mercurial-newt-602
+run_uuid: 9124befbb5a34c93a15f5cbabe91f57a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749872009953
+status: 1
+tags: []
+user_id: lbc800

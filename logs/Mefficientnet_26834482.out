@@ -1,0 +1,12 @@
+Backbone feature dimension: 1280
+Training:   0%|          | 0/75 [00:00<?, ?it/s]
+  0%|          | 0/1197 [00:00<?, ?it/s][A/gscratch/stf/lbc800/fashion-app/train_scripts/train_multihead.py:53: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.bfloat16):
+
+                                        [ATraining:   0%|          | 0/75 [00:21<?, ?it/s]
+Traceback (most recent call last):
+  File "/gscratch/stf/lbc800/fashion-app/train_scripts/train_multihead.py", line 147, in <module>
+    torch.save(train_model(model, train_loader, val_loader, optimizer, device, criterion),'Mefficientnet.pth')
+  File "/gscratch/stf/lbc800/fashion-app/train_scripts/train_multihead.py", line 55, in train_model
+    loss = criterion(output, labels.float())
+AttributeError: 'dict' object has no attribute 'float'

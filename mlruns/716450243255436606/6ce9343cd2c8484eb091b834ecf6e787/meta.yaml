@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/6ce9343cd2c8484eb091b834ecf6e787/artifacts
+end_time: 1749934588358
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: 6ce9343cd2c8484eb091b834ecf6e787
+run_name: sedate-hen-167
+run_uuid: 6ce9343cd2c8484eb091b834ecf6e787
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749913313644
+status: 3
+tags: []
+user_id: lbc800

@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/b2f70e8f75cc4c9aab97ef3344202a41/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: b2f70e8f75cc4c9aab97ef3344202a41
+run_name: upbeat-fly-386
+run_uuid: b2f70e8f75cc4c9aab97ef3344202a41
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749856960166
+status: 1
+tags: []
+user_id: lbc800

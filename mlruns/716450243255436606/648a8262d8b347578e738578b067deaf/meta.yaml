@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/648a8262d8b347578e738578b067deaf/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: 648a8262d8b347578e738578b067deaf
+run_name: bouncy-donkey-38
+run_uuid: 648a8262d8b347578e738578b067deaf
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749891772487
+status: 1
+tags: []
+user_id: lbc800

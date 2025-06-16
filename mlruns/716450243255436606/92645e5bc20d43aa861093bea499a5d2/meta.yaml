@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/92645e5bc20d43aa861093bea499a5d2/artifacts
+end_time: 1749842724250
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: 92645e5bc20d43aa861093bea499a5d2
+run_name: thoughtful-shad-994
+run_uuid: 92645e5bc20d43aa861093bea499a5d2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749842703614
+status: 4
+tags: []
+user_id: lbc800

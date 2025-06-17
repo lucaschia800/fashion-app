@@ -1,0 +1,21 @@
+Backbone feature dimension: 1280
+Model loaded from weights/Mefficientnet.pth
+  0%|          | 0/80 [00:00<?, ?it/s]  0%|          | 0/80 [00:08<?, ?it/s]
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/gscratch/stf/lbc800/fashion-app/eval_scripts/eval_mefficient.py", line 97, in <module>
+    final_results = eval_fefficient(get_model(path = "weights/Mefficientnet.pth"), val_loader, device, categories, metric_dict) #make sure this path is correct
+  File "/gscratch/stf/lbc800/fashion-app/eval_scripts/eval_mefficient.py", line 47, in eval_fefficient
+    map_metric.update(probabilities, labels[category])
+  File "/usr/local/lib/python3.10/dist-packages/torchmetrics/metric.py", line 549, in wrapped_func
+    update(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torchmetrics/classification/precision_recall_curve.py", line 562, in update
+    _multilabel_precision_recall_curve_tensor_validation(preds, target, self.num_labels, self.ignore_index)
+  File "/usr/local/lib/python3.10/dist-packages/torchmetrics/functional/classification/precision_recall_curve.py", line 737, in _multilabel_precision_recall_curve_tensor_validation
+    _binary_precision_recall_curve_tensor_validation(preds, target, ignore_index)
+  File "/usr/local/lib/python3.10/dist-packages/torchmetrics/functional/classification/precision_recall_curve.py", line 140, in _binary_precision_recall_curve_tensor_validation
+    raise ValueError(
+ValueError: Expected argument `target` to be an int or long tensor with ground truth labels but got tensor with dtype torch.float32

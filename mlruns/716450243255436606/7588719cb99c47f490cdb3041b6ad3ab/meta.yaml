@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/7588719cb99c47f490cdb3041b6ad3ab/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: 7588719cb99c47f490cdb3041b6ad3ab
+run_name: classy-shrew-159
+run_uuid: 7588719cb99c47f490cdb3041b6ad3ab
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750129030572
+status: 1
+tags: []
+user_id: lbc800

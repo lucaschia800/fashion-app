@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/gscratch/stf/lbc800/fashion-app/eval_scripts/eval_mefficient.py", line 85, in <module>
+    validation_data = custom_dataset.CustomDataset("imat_data/val_annos_group_relabled.json" , "Val", transforms=EfficientNet_V2_M_Weights.DEFAULT.transforms())
+  File "/gscratch/stf/lbc800/fashion-app/classes/Multiheaded_dataset.py", line 21, in __init__
+    data = json.load(open(data_path, 'r'))
+FileNotFoundError: [Errno 2] No such file or directory: 'imat_data/val_annos_group_relabled.json'

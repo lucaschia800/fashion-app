@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/gscratch/stf/lbc800/fashion-app/train_scripts/train_multihead_freeze.py", line 17, in <module>
+    import classes.multiheaded_Fefficient as custom_model
+ModuleNotFoundError: No module named 'classes'

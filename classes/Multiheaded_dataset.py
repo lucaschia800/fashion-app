@@ -35,7 +35,7 @@ class CustomDataset(Dataset):
         for category, num_classes in self.categories.items():
             category_values = self.data[idx]['labelId'].get(category, [])
             category_values = torch.tensor(category_values, dtype=torch.long)
-            labels = F.one_hot(category_values, num_classes=num_classes).sum(dim=0).float()
+            labels = F.one_hot(category_values, num_classes=num_classes).sum(dim=0)
             label_map[category] = labels
             
 

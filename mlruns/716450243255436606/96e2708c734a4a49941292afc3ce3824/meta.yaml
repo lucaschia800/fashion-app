@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/96e2708c734a4a49941292afc3ce3824/artifacts
+end_time: 1749834879138
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: 96e2708c734a4a49941292afc3ce3824
+run_name: capricious-shrew-263
+run_uuid: 96e2708c734a4a49941292afc3ce3824
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749834870928
+status: 4
+tags: []
+user_id: lbc800

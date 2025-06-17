@@ -1,0 +1,64 @@
+Backbone feature dimension: 1280
+Training:   0%|          | 0/75 [00:00<?, ?it/s]
+  0%|          | 0/701 [00:00<?, ?it/s][A/gscratch/stf/lbc800/fashion-app/train_scripts/train_multihead.py:53: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.bfloat16):
+
+                                       [ATraining:   0%|          | 0/75 [00:14<?, ?it/s]
+Traceback (most recent call last):
+  File "/gscratch/stf/lbc800/fashion-app/train_scripts/train_multihead.py", line 147, in <module>
+    torch.save(train_model(model, train_loader, val_loader, optimizer, device, criterion),'Mefficientnet.pth')
+  File "/gscratch/stf/lbc800/fashion-app/train_scripts/train_multihead.py", line 54, in train_model
+    output = model(images)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/gscratch/stf/lbc800/fashion-app/train_scripts/multiheaded_Fefficient.py", line 94, in forward
+    features = self.backbone(x)  # Shape: [batch_size, feature_dim]
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/efficientnet.py", line 343, in forward
+    return self._forward_impl(x)
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/efficientnet.py", line 333, in _forward_impl
+    x = self.features(x)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/container.py", line 250, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/container.py", line 250, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torchvision/models/efficientnet.py", line 164, in forward
+    result = self.block(input)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/container.py", line 250, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/container.py", line 250, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/conv.py", line 554, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/conv.py", line 549, in _conv_forward
+    return F.conv2d(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 234.00 MiB. GPU 0 has a total capacity of 44.42 GiB of which 106.12 MiB is free. Including non-PyTorch memory, this process has 44.31 GiB memory in use. Of the allocated memory 43.55 GiB is allocated by PyTorch, and 267.73 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

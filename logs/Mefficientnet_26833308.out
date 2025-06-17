@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/gscratch/stf/lbc800/fashion-app/train_scripts/train_multihead.py", line 131, in <module>
+    validation_data = custom_dataset.CustomDataset("imat_data/val_annos_group_relabel.json" , "Val", transforms=transforms)
+  File "/gscratch/stf/lbc800/fashion-app/train_scripts/Multiheaded_dataset.py", line 21, in __init__
+    data = json.load(open(data_path, 'r'))
+FileNotFoundError: [Errno 2] No such file or directory: 'imat_data/val_annos_group_relabel.json'

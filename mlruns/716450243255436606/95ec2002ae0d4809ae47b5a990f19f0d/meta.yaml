@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/95ec2002ae0d4809ae47b5a990f19f0d/artifacts
+end_time: 1749833890711
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: 95ec2002ae0d4809ae47b5a990f19f0d
+run_name: bouncy-swan-831
+run_uuid: 95ec2002ae0d4809ae47b5a990f19f0d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749833876217
+status: 4
+tags: []
+user_id: lbc800

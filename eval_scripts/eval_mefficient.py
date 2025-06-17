@@ -82,7 +82,7 @@ if __name__ == "__main__":
     device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
 
 
-    validation_data = custom_dataset.CustomDataset("imat_data/val_annos_group_relabled.json" , "Val", transforms=EfficientNet_V2_M_Weights.DEFAULT.transforms())
+    validation_data = custom_dataset.CustomDataset("imat_data/val_annos_group_relabeled.json" , "Val", transforms=EfficientNet_V2_M_Weights.DEFAULT.transforms())
     val_loader = DataLoader(validation_data, batch_size = batch_size,  num_workers = 6)
     
     metric_dict = {}

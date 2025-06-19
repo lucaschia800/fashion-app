@@ -5,7 +5,7 @@ import torch.nn.functional as F
 from torch.utils.data import Dataset
 from torchvision.transforms import v2  
 import torchvision.datasets as datasets
-from torchvision.models import EfficientNet_V2_M_Weights, efficientnet_v2_m
+from torchvision.models import EfficientNet_V2_M_Weights, efficientnet_v2_m 
 import os
 from tqdm import tqdm 
 from PIL import Image
@@ -36,7 +36,13 @@ class MultiHead_FEfficientNet(nn.Module):
         self.ckpt_path = ckpt_path
         
 
-        weights = EfficientNet_V2_M_Weights.DEFAULT
+        if self.ckpt_path:
+            print("Initializing model architecture. Weights will be loaded from checkpoint.")
+            weights = None
+        else:
+            print("Initializing model with default ImageNet weights for the backbone.")
+            weights = EfficientNet_V2_M_Weights.DEFAULT
+
         self.backbone = efficientnet_v2_m(weights=weights)  
         
         # Get feature dimension from backbone
@@ -47,7 +53,12 @@ class MultiHead_FEfficientNet(nn.Module):
         self.classifier_heads = nn.ModuleDict()
         self._build_classifier_heads()
         
-        self._initialize_heads()
+        if self.ckpt_path:
+            ckpt = torch.load(self.ckpt_path, map_location='cpu')
+            self.load_state_dict(ckpt)
+        else:
+            print("No checkpoint provided, initializing classifier heads.")
+            self._initialize_heads()
     
     def _build_classifier_heads(self):
         """Build classifier heads for each attribute"""

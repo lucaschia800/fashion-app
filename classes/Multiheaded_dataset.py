@@ -39,7 +39,7 @@ class CustomDataset(Dataset):
             category_values = torch.tensor(category_values, dtype=torch.long)
             
             labels = F.one_hot(category_values, num_classes=num_classes).sum(dim=0).float() if self.train else \
-                labels = F.one_hot(category_values, num_classes=num_classes).sum(dim=0).long() #eval vs train floats
+                F.one_hot(category_values, num_classes=num_classes).sum(dim=0).long() #eval vs train floats
             label_map[category] = labels
             
 

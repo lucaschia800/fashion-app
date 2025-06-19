@@ -17,12 +17,14 @@ import json
 import copy
 
 class CustomDataset(Dataset):
-    def __init__(self, data_path, split, transforms=None, categories = {'gender' : 3, 'material' : 23, 'pattern' : 18, 'style' : 10, 'sleeve' : 4, 'category': 48, 'color' : 19}): #categories is 1 indexed ie len()
+    def __init__(self, data_path, split, transforms=None, categories = {'gender' : 3, 'material' : 23, 'pattern' : 18, 'style' : 10, 'sleeve' : 4, 'category': 48, 'color' : 19},
+                 train = True): #categories is 1 indexed ie len()
         data = json.load(open(data_path, 'r'))
         self.split = split
         self.transforms = transforms
         self.data = data['annotations']
         self.categories = categories
+        self.train = train
 
     def __getitem__(self, idx):
 
@@ -35,7 +37,9 @@ class CustomDataset(Dataset):
         for category, num_classes in self.categories.items():
             category_values = self.data[idx]['labelId'].get(category, [])
             category_values = torch.tensor(category_values, dtype=torch.long)
-            labels = F.one_hot(category_values, num_classes=num_classes).sum(dim=0)
+            
+            labels = F.one_hot(category_values, num_classes=num_classes).sum(dim=0).float() if self.train else \
+                labels = F.one_hot(category_values, num_classes=num_classes).sum(dim=0).long() #eval vs train floats
             label_map[category] = labels
             
 

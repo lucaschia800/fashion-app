@@ -94,7 +94,7 @@ if __name__ == "__main__":
         metric_dict[category] = (map_metric, map_macro)
 
 
-    final_results = eval_fefficient(get_model(path = "weights/Mefficientnet.pth"), val_loader, device, categories, metric_dict) #make sure this path is correct
+    final_results = eval_fefficient(get_model(path = "weights/Mefficientnet_v2_freeze_ckpt1.pth"), val_loader, device, categories, metric_dict) #make sure this path is correct
 
-    save_metrics(final_results, save_path="eval_res/validation_metrics_mefficient_no_freeze.json")
+    save_metrics(final_results, save_path="eval_res/validation_metrics_mefficient_ckpt1.json")
 

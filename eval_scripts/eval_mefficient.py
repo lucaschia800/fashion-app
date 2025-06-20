@@ -15,10 +15,9 @@ import classes.multiheaded_fefficient_v2 as custom_model
 import classes.Multiheaded_dataset as custom_dataset
 
 def get_model(path = None):
-    model = custom_model.MultiHead_FEfficientNet()
-    if path is not None:
-        model.load_state_dict(torch.load(path, map_location='cpu'))
-        print(f"Model loaded from {path}")\
+    model = custom_model.MultiHead_FEfficientNet(ckpt_path=path)
+    if path is None:
+        model = custom_model.MultiHead_FEfficientNet()
         
     return model
 
@@ -82,7 +81,7 @@ if __name__ == "__main__":
     device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
 
 
-    validation_data = custom_dataset.CustomDataset("imat_data/val_annos_group_relabeled.json" , "Val", transforms=EfficientNet_V2_M_Weights.DEFAULT.transforms())
+    validation_data = custom_dataset.CustomDataset("imat_data/val_annos_group_relabeled.json" , "Val", transforms=EfficientNet_V2_M_Weights.DEFAULT.transforms(), train=False)
     val_loader = DataLoader(validation_data, batch_size = batch_size,  num_workers = 6)
     
     metric_dict = {}

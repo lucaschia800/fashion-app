@@ -11,7 +11,7 @@ from tqdm import tqdm
 from PIL import Image
 import json
 import torch.nn as nn
-import classes.multiheaded_Fefficient as custom_model
+import classes.multiheaded_fefficient_v2 as custom_model
 import classes.Multiheaded_dataset as custom_dataset
 
 def get_model(path = None):

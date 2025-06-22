@@ -134,7 +134,7 @@ if __name__ == "__main__":
 
 
     # Get model
-    model = custom_model.MultiHead_FEfficientNet(ckpt_path= 'weights/Mefficientnet_v2_freeze.pth')
+    model = custom_model.MultiHead_FEfficientNet(ckpt_path= 'weights/Mefficientnet_v2_freeze_ckpt1.pth')
     
 
 

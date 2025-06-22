@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/9ee38b5b273f427680c7b111cdde6bcb/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: 9ee38b5b273f427680c7b111cdde6bcb
+run_name: judicious-fish-715
+run_uuid: 9ee38b5b273f427680c7b111cdde6bcb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750220635983
+status: 1
+tags: []
+user_id: lbc800

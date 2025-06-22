@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/2e19330dae32401a949bb18163cee777/artifacts
+end_time: 1750330179992
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: 2e19330dae32401a949bb18163cee777
+run_name: suave-mare-979
+run_uuid: 2e19330dae32401a949bb18163cee777
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750315130558
+status: 3
+tags: []
+user_id: lbc800

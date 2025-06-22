@@ -1,0 +1,20 @@
+Backbone feature dimension: 1280
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/gscratch/stf/lbc800/fashion-app/eval_scripts/eval_mefficient.py", line 97, in <module>
+    final_results = eval_fefficient(get_model(path = "weights/Mefficientnet_v2_freeze_ckpt1.pth"), val_loader, device, categories, metric_dict) #make sure this path is correct
+  File "/gscratch/stf/lbc800/fashion-app/eval_scripts/eval_mefficient.py", line 20, in get_model
+    model.load_state_dict(torch.load(path, map_location='cpu'))
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 2581, in load_state_dict
+    raise RuntimeError(
+RuntimeError: Error(s) in loading state_dict for MultiHead_FEfficientNet:
+	Unexpected key(s) in state_dict: "classifier_heads.material.4.weight", "classifier_heads.material.4.bias", "classifier_heads.pattern.4.weight", "classifier_heads.pattern.4.bias", "classifier_heads.category.4.weight", "classifier_heads.category.4.bias". 
+	size mismatch for classifier_heads.material.1.weight: copying a param with shape torch.Size([256, 1280]) from checkpoint, the shape in current model is torch.Size([23, 1280]).
+	size mismatch for classifier_heads.material.1.bias: copying a param with shape torch.Size([256]) from checkpoint, the shape in current model is torch.Size([23]).
+	size mismatch for classifier_heads.pattern.1.weight: copying a param with shape torch.Size([256, 1280]) from checkpoint, the shape in current model is torch.Size([18, 1280]).
+	size mismatch for classifier_heads.pattern.1.bias: copying a param with shape torch.Size([256]) from checkpoint, the shape in current model is torch.Size([18]).
+	size mismatch for classifier_heads.category.1.weight: copying a param with shape torch.Size([256, 1280]) from checkpoint, the shape in current model is torch.Size([48, 1280]).
+	size mismatch for classifier_heads.category.1.bias: copying a param with shape torch.Size([256]) from checkpoint, the shape in current model is torch.Size([48]).

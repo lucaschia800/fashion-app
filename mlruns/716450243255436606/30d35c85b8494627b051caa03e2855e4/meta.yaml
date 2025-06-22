@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/30d35c85b8494627b051caa03e2855e4/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: 30d35c85b8494627b051caa03e2855e4
+run_name: marvelous-lark-696
+run_uuid: 30d35c85b8494627b051caa03e2855e4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750216452975
+status: 1
+tags: []
+user_id: lbc800

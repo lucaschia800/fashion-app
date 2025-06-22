@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/e1605931cd0f4f54a173f1cb95daf8ba/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: e1605931cd0f4f54a173f1cb95daf8ba
+run_name: respected-sow-333
+run_uuid: e1605931cd0f4f54a173f1cb95daf8ba
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750569305025
+status: 1
+tags: []
+user_id: lbc800

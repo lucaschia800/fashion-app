@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 187, in _run_module_as_main
+    mod_name, mod_spec, code = _get_module_details(mod_name, _Error)
+  File "/usr/lib/python3.10/runpy.py", line 110, in _get_module_details
+    __import__(pkg_name)
+  File "/mmfs1/gscratch/stf/lbc800/fashion-app/train_scripts/train_multihead_v2_freeze.py", line 18, in <module>
+    import classes.Multiheaded_dataset as custom_dataset
+  File "/mmfs1/gscratch/stf/lbc800/fashion-app/classes/Multiheaded_dataset.py", line 41
+    labels = F.one_hot(category_values, num_classes=num_classes).sum(dim=0).float() if self.train else \
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: invalid syntax. Maybe you meant '==' or ':=' instead of '='?

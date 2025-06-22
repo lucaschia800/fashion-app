@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/1f991cba8d8c4045976c2c616f8e95e4/artifacts
+end_time: 1750613386526
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: 1f991cba8d8c4045976c2c616f8e95e4
+run_name: rare-worm-352
+run_uuid: 1f991cba8d8c4045976c2c616f8e95e4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750591433142
+status: 3
+tags: []
+user_id: lbc800

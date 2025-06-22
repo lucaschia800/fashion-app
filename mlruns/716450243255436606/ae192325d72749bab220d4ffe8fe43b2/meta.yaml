@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/ae192325d72749bab220d4ffe8fe43b2/artifacts
+end_time: 1750411319659
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: ae192325d72749bab220d4ffe8fe43b2
+run_name: shivering-robin-26
+run_uuid: ae192325d72749bab220d4ffe8fe43b2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750400561600
+status: 3
+tags: []
+user_id: lbc800

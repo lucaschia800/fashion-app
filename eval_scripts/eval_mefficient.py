@@ -40,8 +40,11 @@ def eval_fefficient(model, dataloader, device, categories, metric_dict):
             map_metric, map_macro = metric_dict[category]
             # Convert outputs and labels to binary format
 
-            probabilities = torch.sigmoid(output_logits[category])
-            
+            if category in ['color', 'pattern', 'material']:
+                probabilities = torch.sigmoid(output_logits[category])
+            else:
+                probabilities = torch.softmax(output_logits[category], dim=1) 
+             
 
             map_metric.update(probabilities, labels[category])
             map_macro.update(probabilities, labels[category])
@@ -95,5 +98,5 @@ if __name__ == "__main__":
 
     final_results = eval_fefficient(get_model(path = "weights/Mefficientnet_v2_freeze_ckpt2.pth"), val_loader, device, categories, metric_dict) #make sure this path is correct
 
-    save_metrics(final_results, save_path="eval_res/validation_metrics_mefficient_ckpt2.json")
+    save_metrics(final_results, save_path="eval_res/validation_metrics_mefficient_ckpt2_softmax.json")
 

@@ -166,30 +166,7 @@ def create_dataset(json_file_path, max_workers=7):
 
 if __name__ == "__main__":
     # Usage example
-    json_file = "imat_data/train.json"  # Replace with your JSON file path
+    json_file = "imat_data/train.json" 
     
     # Create the dataset
-    create_dataset(json_file, max_workers=7)
-    
-    # Alternative: If you have the JSON data as a string or dict
-    # You can also use it directly like this:
-    """
-    json_data = {
-        "images": [
-            {
-                "url": "https://contestimg.wish.com/api/webimage/568e16a72dfd0133cb3f7a79-large", 
-                "imageId": "1"
-            },
-            # ... more images
-        ]
-    }
-    
-    # Save to temporary file and process
-    import tempfile
-    with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as f:
-        json.dump(json_data, f)
-        temp_file = f.name
-    
-    create_dataset(temp_file)
-    os.unlink(temp_file)  # Clean up temp file
-    """
+    create_dataset(json_file, max_workers=20)

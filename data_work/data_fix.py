@@ -6,7 +6,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from urllib.parse import urlparse
 import time
 
-with open('imat_data/train.json', 'r') as f:
+with open('imat_data/original_annos/train.json', 'r') as f:
     data = json.load(f)
 
 
@@ -21,7 +21,7 @@ for i in range(len(annotations)):
 print(f"Number of images in train set: {len(annotations_train)}")
 
 # Save the filtered annotations to a new JSON file
-output_file = 'imat_data/train_annos_6-4.json'
+output_file = 'imat_data/train_annos_6-26.json'
 with open(output_file, 'w') as f:
     json.dump({'annotations': annotations_train}, f, indent=4)
     

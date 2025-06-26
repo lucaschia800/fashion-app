@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/fc899bcb87eb4ebb820273d5516d4f93/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: fc899bcb87eb4ebb820273d5516d4f93
+run_name: carefree-sloth-304
+run_uuid: fc899bcb87eb4ebb820273d5516d4f93
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750888854469
+status: 1
+tags: []
+user_id: lbc800

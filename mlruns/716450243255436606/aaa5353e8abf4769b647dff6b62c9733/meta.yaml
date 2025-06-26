@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/aaa5353e8abf4769b647dff6b62c9733/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: aaa5353e8abf4769b647dff6b62c9733
+run_name: illustrious-fawn-172
+run_uuid: aaa5353e8abf4769b647dff6b62c9733
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750957991916
+status: 1
+tags: []
+user_id: lbc800

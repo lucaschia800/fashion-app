@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/4f4822526aca4ba2aeea56ececa46d96/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: 4f4822526aca4ba2aeea56ececa46d96
+run_name: magnificent-bass-207
+run_uuid: 4f4822526aca4ba2aeea56ececa46d96
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750894183703
+status: 1
+tags: []
+user_id: lbc800

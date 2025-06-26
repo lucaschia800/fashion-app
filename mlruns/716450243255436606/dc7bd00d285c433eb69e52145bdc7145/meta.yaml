@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/dc7bd00d285c433eb69e52145bdc7145/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: dc7bd00d285c433eb69e52145bdc7145
+run_name: secretive-hound-198
+run_uuid: dc7bd00d285c433eb69e52145bdc7145
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750918042389
+status: 1
+tags: []
+user_id: lbc800

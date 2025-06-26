@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/886382175a3247fabcd049256c83a64a/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: 886382175a3247fabcd049256c83a64a
+run_name: gentle-goat-212
+run_uuid: 886382175a3247fabcd049256c83a64a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750844239722
+status: 1
+tags: []
+user_id: lbc800

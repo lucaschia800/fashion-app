@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/d97fbf07cf6b40fab500c827872def6b/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: d97fbf07cf6b40fab500c827872def6b
+run_name: monumental-worm-291
+run_uuid: d97fbf07cf6b40fab500c827872def6b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750958499252
+status: 1
+tags: []
+user_id: lbc800

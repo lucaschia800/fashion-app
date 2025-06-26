@@ -134,7 +134,7 @@ if __name__ == "__main__":
 
 
     # Get model
-    model = custom_model.MultiHead_FEfficientNet(ckpt_path= 'weights/Mefficientnet_v2_freeze_ckpt1.pth')
+    model = custom_model.MultiHead_FEfficientNet(ckpt_path= 'weights/Mefficientnet_v2_freeze_ckpt2.pth')
     
 
 
@@ -162,4 +162,4 @@ if __name__ == "__main__":
 
 
 
-    torch.save(train_model(model, train_loader, val_loader, optimizer, device, criterion),'Mefficientnet_v2_freeze_ckpt2.pth')
+    torch.save(train_model(model, train_loader, val_loader, optimizer, device, criterion),'Mefficientnet_v2_freeze_ckpt2_large_data.pth')

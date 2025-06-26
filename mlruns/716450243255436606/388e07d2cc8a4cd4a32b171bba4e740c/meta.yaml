@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/388e07d2cc8a4cd4a32b171bba4e740c/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: 388e07d2cc8a4cd4a32b171bba4e740c
+run_name: gifted-squirrel-962
+run_uuid: 388e07d2cc8a4cd4a32b171bba4e740c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750952427856
+status: 1
+tags: []
+user_id: lbc800

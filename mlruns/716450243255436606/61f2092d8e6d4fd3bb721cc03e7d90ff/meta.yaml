@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/61f2092d8e6d4fd3bb721cc03e7d90ff/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: 61f2092d8e6d4fd3bb721cc03e7d90ff
+run_name: victorious-goat-480
+run_uuid: 61f2092d8e6d4fd3bb721cc03e7d90ff
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750957653491
+status: 1
+tags: []
+user_id: lbc800

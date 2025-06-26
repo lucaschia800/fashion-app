@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/88ae7337a7144d8ebcaf9a4a3d5a601d/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: 88ae7337a7144d8ebcaf9a4a3d5a601d
+run_name: blushing-gull-223
+run_uuid: 88ae7337a7144d8ebcaf9a4a3d5a601d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750878050295
+status: 1
+tags: []
+user_id: lbc800

@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/51b611243a974d9db142250491847281/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: 51b611243a974d9db142250491847281
+run_name: adaptable-deer-111
+run_uuid: 51b611243a974d9db142250491847281
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750887555529
+status: 1
+tags: []
+user_id: lbc800

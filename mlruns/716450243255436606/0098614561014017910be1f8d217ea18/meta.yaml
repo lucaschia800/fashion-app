@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/0098614561014017910be1f8d217ea18/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: 0098614561014017910be1f8d217ea18
+run_name: respected-crab-426
+run_uuid: 0098614561014017910be1f8d217ea18
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750884430864
+status: 1
+tags: []
+user_id: lbc800

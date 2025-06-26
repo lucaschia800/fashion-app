@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/1411641e4b70467aa497e30142308b27/artifacts
+end_time: 1750932473379
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: 1411641e4b70467aa497e30142308b27
+run_name: hilarious-loon-333
+run_uuid: 1411641e4b70467aa497e30142308b27
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750902876743
+status: 3
+tags: []
+user_id: lbc800

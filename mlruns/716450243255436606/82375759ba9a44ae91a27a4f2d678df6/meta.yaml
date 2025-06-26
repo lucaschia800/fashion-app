@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/82375759ba9a44ae91a27a4f2d678df6/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: 82375759ba9a44ae91a27a4f2d678df6
+run_name: unequaled-robin-106
+run_uuid: 82375759ba9a44ae91a27a4f2d678df6
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750953491360
+status: 1
+tags: []
+user_id: lbc800

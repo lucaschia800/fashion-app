@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/98c226035440497c9ea7e992d9843829/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: 98c226035440497c9ea7e992d9843829
+run_name: respected-snake-563
+run_uuid: 98c226035440497c9ea7e992d9843829
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750891556577
+status: 1
+tags: []
+user_id: lbc800

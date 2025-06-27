@@ -6,7 +6,7 @@ import pandas as pd
 relabel_df = pd.read_excel('imat_data/relabel-split.xlsx')
 
 
-annotations = json.load(open('imat_data/train_annos_6-4.json', 'r'))  
+annotations = json.load(open('imat_data/train_annos_6-26.json', 'r'))  
 map_dict = dict((zip(relabel_df['labelId'], relabel_df['labelId_new'])))
 print(len(annotations['annotations']))
 
@@ -36,5 +36,5 @@ for annotation in annotations['annotations']:
     annotation['labelId'] = new_labels
 
 print(len(annotations['annotations']))
-with open('imat_data/train_annos_relabel-6-4.json', 'w') as f:
+with open('imat_data/train_annos_relabel-6-26.json', 'w') as f:
     json.dump(annotations, f, indent=4)

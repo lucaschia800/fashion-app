@@ -6,6 +6,11 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from urllib.parse import urlparse
 import time
 
+"""
+Script finds the images that are already downloaded and creates an new json annotation file which only contains the annotations
+of images that are already downloaded.
+"""
+
 with open('imat_data/original_annos/train.json', 'r') as f:
     data = json.load(f)
 

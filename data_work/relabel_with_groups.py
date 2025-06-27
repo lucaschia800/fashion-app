@@ -35,7 +35,7 @@ def create_relabeling_script():
     
     print("\nLoading train_annos_relabel-6-4.json...")
     # Load the annotation data
-    with open('imat_data/val_annos_clean.json', 'r') as f:
+    with open('imat_data/train_annos_relabel-6-26.json', 'r') as f:
         data = json.load(f)
     
     print(f"Processing {len(data['annotations'])} annotations...")
@@ -88,7 +88,7 @@ def create_relabeling_script():
     }
     
     # Save the relabeled dataset
-    output_path = 'imat_data/val_annos_group_relabeled.json'
+    output_path = 'imat_data/train_annos_6-26_final.json'
     print(f"\nSaving relabeled dataset to {output_path}...")
     
     with open(output_path, 'w') as f:
@@ -116,7 +116,7 @@ def create_relabeling_script():
         print(f"  Group {group_label}: {count} occurrences")
     
     # Save a sample of the relabeled data for inspection
-    sample_path = 'imat_data/train_annos_group_relabeled_sample.json'
+    sample_path = 'imat_data/train_annos_group_relabeled_sample_6-26.json'
     sample_data = {
         'annotations': relabeled_annotations[:100],  # First 100 annotations
         'mapping_info': relabeled_data['mapping_info']

@@ -27,27 +27,39 @@ class CustomDataset(Dataset):
         self.train = train
 
     def __getitem__(self, idx):
+        max_attempts = 10  # Prevent infinite loops
+        attempt = 0
+        
+        while attempt < max_attempts:
+            try:
+                image_path = "imat_data/img/" + self.data[idx]['imageId'] + ".jpg" if self.split == "Train" \
+                    else "imat_data/img_val/" + self.data[idx]['imageId'] + ".jpg"
+                image = Image.open(image_path).convert("RGB")
 
-        image_path = "imat_data/img/" + self.data[idx]['imageId'] + ".jpg" if self.split == "Train" \
-            else "imat_data/img_val/" + self.data[idx]['imageId'] + ".jpg"
-        image = Image.open(image_path).convert("RGB")
+                label_map = {}
 
-        label_map = {}
+                for category, num_classes in self.categories.items():
+                    category_values = self.data[idx]['labelId'].get(category, [])
+                    category_values = torch.tensor(category_values, dtype=torch.long)
+                    
+                    labels = F.one_hot(category_values, num_classes=num_classes).sum(dim=0).float() if self.train else \
+                        F.one_hot(category_values, num_classes=num_classes).sum(dim=0).long() #eval vs train floats
+                    label_map[category] = labels
+                    
 
-        for category, num_classes in self.categories.items():
-            category_values = self.data[idx]['labelId'].get(category, [])
-            category_values = torch.tensor(category_values, dtype=torch.long)
-            
-            labels = F.one_hot(category_values, num_classes=num_classes).sum(dim=0).float() if self.train else \
-                F.one_hot(category_values, num_classes=num_classes).sum(dim=0).long() #eval vs train floats
-            label_map[category] = labels
-            
+                if self.transforms is not None:
+                    image = self.transforms(image)
 
-        if self.transforms is not None:
-            image = self.transforms(image)
-
-
-        return image, label_map
+                return image, label_map
+                
+            except (OSError, IOError, ValueError, Exception) as e:
+                print(f"Error opening image {image_path}: {e}")
+                # Try a different random index
+                idx = np.random.randint(0, len(self.data))
+                attempt += 1
+        
+        # If we've tried too many times, raise an error
+        raise RuntimeError(f"Failed to load any valid image after {max_attempts} attempts")
 
     def __len__(self):
         return len(self.data)

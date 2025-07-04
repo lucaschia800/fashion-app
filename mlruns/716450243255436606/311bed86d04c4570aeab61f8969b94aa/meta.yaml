@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/311bed86d04c4570aeab61f8969b94aa/artifacts
+end_time: 1751098791785
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: 311bed86d04c4570aeab61f8969b94aa
+run_name: orderly-donkey-578
+run_uuid: 311bed86d04c4570aeab61f8969b94aa
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1751056113039
+status: 3
+tags: []
+user_id: lbc800

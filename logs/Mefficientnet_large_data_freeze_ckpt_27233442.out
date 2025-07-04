@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/gscratch/stf/lbc800/fashion-app/train_scripts/train_multihead_v2_freeze_ckpt2.py", line 129, in <module>
+    training_data = custom_dataset.CustomDataset("imat_data/train_annos_6-26_final.json", "Train", transforms=transforms)
+  File "/gscratch/stf/lbc800/fashion-app/classes/Multiheaded_dataset.py", line 22, in __init__
+    data = json.load(open(data_path, 'r'))
+FileNotFoundError: [Errno 2] No such file or directory: 'imat_data/train_annos_6-26_final.json'

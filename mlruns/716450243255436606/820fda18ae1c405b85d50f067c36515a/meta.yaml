@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/820fda18ae1c405b85d50f067c36515a/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: 820fda18ae1c405b85d50f067c36515a
+run_name: stylish-cod-716
+run_uuid: 820fda18ae1c405b85d50f067c36515a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1751064812358
+status: 1
+tags: []
+user_id: lbc800

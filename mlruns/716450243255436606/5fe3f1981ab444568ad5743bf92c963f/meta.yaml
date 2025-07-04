@@ -1,0 +1,15 @@
+artifact_uri: file:///gscratch/stf/lbc800/fashion-app/mlruns/716450243255436606/5fe3f1981ab444568ad5743bf92c963f/artifacts
+end_time: 1751054096716
+entry_point_name: ''
+experiment_id: '716450243255436606'
+lifecycle_stage: active
+run_id: 5fe3f1981ab444568ad5743bf92c963f
+run_name: stately-shoat-599
+run_uuid: 5fe3f1981ab444568ad5743bf92c963f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1751054069449
+status: 4
+tags: []
+user_id: lbc800

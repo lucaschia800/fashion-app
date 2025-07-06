@@ -157,7 +157,7 @@ if __name__ == "__main__":
             metric_dict[category]['f1_macro'] = MultilabelF1Score(num_labels=num_classes, average='macro').to(device)
             metric_dict[category]['subset_accuracy'] = MultilabelAccuracy(num_labels=num_classes, average='micro').to(device)
 
-    final_results = eval_fefficient(get_model(path = "weights/Mefficientnet_v2_freeze_ckpt2.pth"), val_loader, device, categories, metric_dict)
+    final_results = eval_fefficient(get_model(path = "weights/Mefficientnet_v2_freeze_ckpt2_large_data.pth"), val_loader, device, categories, metric_dict)
 
     save_metrics(final_results, save_path="eval_res/validation_metrics_comprehensive.json")
 

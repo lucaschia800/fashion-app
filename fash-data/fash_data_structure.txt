@@ -1,0 +1,67 @@
+Analyzing: fash-data/letter_A.json
+============================================================
+Root type: <class 'list'>
+Number of items: 1980
+
+============================================================
+DETAILED STRUCTURE ANALYSIS
+============================================================
+
+1. FIRST ITEM STRUCTURE:
+  Dict with 2 keys:
+    Designer: str = À La Garçonne
+    Shows: list with 2 items
+      First item:
+        Dict with 2 keys:
+          Show Name: str = São Paulo Resort 2017
+          Looks: list with 59 items
+            First item:
+              Dict with 3 keys:
+                Look_Url: str = https://assets.vogue.com/photos/5811b1e6430bf76f0e335edf/master/w_1024,c_limit/_ALA0013.jpg
+                Garments: dict with 0 keys
+                  Dict with 0 keys:
+                Look_Number: int = 1
+
+============================================================
+2. PATTERN ANALYSIS (comparing first 3 items)
+============================================================
+
+--- Item 1 ---
+  Designer: str
+  Shows: list with 2 items
+    First item keys: ['Show Name', 'Looks']
+
+--- Item 2 ---
+  Designer: str
+  Shows: list with 2 items
+    First item keys: ['Show Name', 'Looks']
+
+--- Item 3 ---
+  Designer: str
+  Shows: list with 3 items
+    First item keys: ['Show Name', 'Looks']
+
+============================================================
+3. COMMON PATTERNS
+============================================================
+Structure consistency across items:
+  All items have same top-level keys: True
+  Top-level keys: ['Shows', 'Designer']
+
+Shows analysis:
+  Number of shows per designer: [2, 2, 3, 3, 0]
+  First show keys: ['Show Name', 'Looks']
+  Number of looks per show (first 3 designers): [59, 48, 10, 22, 37, 32, 28]
+  First look keys: ['Garments', 'Look_Number', 'Look_Url']
+
+============================================================
+4. SAMPLE DATA VALUES
+============================================================
+Sample values from first item:
+  Designer: À La Garçonne
+  Shows: list with 2 items
+    First item keys: ['Show Name', 'Looks']
+    Sample show name: São Paulo Resort 2017
+    Sample look keys: ['Look_Url', 'Garments', 'Look_Number']
+    Sample look URL: https://assets.vogue.com/photos/5811b1e6430bf76f0e335edf/master/w_1024,c_limit/_...
+    Garments keys: []

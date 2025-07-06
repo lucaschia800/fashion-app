@@ -159,5 +159,5 @@ if __name__ == "__main__":
 
     final_results = eval_fefficient(get_model(path = "weights/Mefficientnet_v2_freeze_ckpt2_large_data.pth"), val_loader, device, categories, metric_dict)
 
-    save_metrics(final_results, save_path="eval_res/validation_metrics_comprehensive.json")
+    save_metrics(final_results, save_path="eval_res/validation_metrics_comprehensive_large_data.json")
 

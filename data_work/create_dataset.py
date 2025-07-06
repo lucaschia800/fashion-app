@@ -166,7 +166,7 @@ def create_dataset(json_file_path, max_workers=7):
 
 if __name__ == "__main__":
     # Usage example
-    json_file = "imat_data/train.json" 
+    json_file = "imat_data/original_annos/train.json" 
     
     # Create the dataset
     create_dataset(json_file, max_workers=20)

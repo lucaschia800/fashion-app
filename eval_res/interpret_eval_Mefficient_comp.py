@@ -2,14 +2,14 @@ import json
 import pandas as pd
 
 # Load comprehensive and baseline metrics
-with open("validation_metrics_comprehensive.json", "r") as f:
+with open("eval_res/validation_metrics_comprehensive_large_data.json", "r") as f:
     mefficient_data = json.load(f)
 
-with open("validation_metrics.json", "r") as f:
+with open("eval_res/validation_metrics.json", "r") as f:
     baseline_data = json.load(f)
     baseline_data = baseline_data["per_class_average_precision"]
 
-label_map = pd.read_excel("../imat_data/relabel-split.xlsx", engine='openpyxl')
+label_map = pd.read_excel("imat_data/relabel-split.xlsx", engine='openpyxl')
 
 def print_overall_comparison():
     print("=== COMPREHENSIVE MODEL vs BASELINE COMPARISON ===\n")

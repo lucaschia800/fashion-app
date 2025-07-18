@@ -1,0 +1,13 @@
+#1
+
+
+#Use data_fix.py to create a new .json which only contains the pictures which were downloaded
+
+
+#2
+
+Use relabel_dataset.py to use create a new .json datast with only the classes we are interested in
+
+#3
+
+Use relabel_with_groups.py to create another .json dataset with the groupings for Mefficentnet

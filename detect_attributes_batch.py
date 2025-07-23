@@ -167,7 +167,7 @@ def main():
         model,
         dataset_with_attributes,
         letter="A",
-        batch_size=32,
+        batch_size=100,
         device=device,
         transforms=tfm,
         max_workers=16,

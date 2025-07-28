@@ -10,7 +10,7 @@ import requests
 from tqdm import tqdm
 from torchvision.models import EfficientNet_V2_M_Weights
 
-import classes.multiheaded_Fefficient as mhf
+import classes.multiheaded_fefficient_v2 as mhf
 
 # ------------------------------------------------------------
 # Model & preprocessing helper

@@ -115,7 +115,7 @@ def detect_attributes(
 
     # Build task list with direct references
     for designer in dataset:
-        if not designer["Designer_Name"].startswith(letter):
+        if not designer["Designer"].startswith(letter):
             continue
         for show in designer["Shows"]:
             for look in show["Looks"]:
@@ -125,7 +125,7 @@ def detect_attributes(
                         look["Garments"]["boxes"],
                         look["Garments"]["labels"],
                         {
-                            "designer": designer["Designer_Name"],
+                            "designer": designer["Designer"],
                             "show_id": show.get("Show_Name", "N/A"),
                             "look_id": look.get("Look_Number", "N/A"),
                             "garment_ref": look["Garments"]  # Direct reference!

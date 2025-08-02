@@ -119,6 +119,8 @@ def detect_attributes(
             continue
         for show in designer["Shows"]:
             for look in show["Looks"]:
+                if look is None:
+                    continue
                 tasks.append(
                     (
                         look["Look_Url"],

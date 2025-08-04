@@ -73,7 +73,7 @@ def _infer_batch(model, img_list: List[torch.Tensor], meta_list: List[Dict], dev
         # Initialize this box's attributes if not present
         if box_idx >= len(garment_dict["attributes"]):
             # Extend attributes list if needed
-            while len(garment_dict["attributes"]) <= box_idx:
+            while len(garment_dict["attributes"]) < box_idx:
                 garment_dict["attributes"].append({})
 
         # Process predictions for each category
@@ -124,8 +124,8 @@ def detect_attributes(
                 tasks.append(
                     (
                         look["Look_Url"],
-                        look["Garments"]["boxes"],
-                        look["Garments"]["labels"],
+                        look["Garments"].get("boxes", []),
+                        look["Garments"].get("labels", []),
                         {
                             "designer": designer["Designer"],
                             "show_id": show.get("Show_Name", "N/A"),

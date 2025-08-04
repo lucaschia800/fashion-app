@@ -118,9 +118,9 @@ def detect_attributes(
         if not designer["Designer"].startswith(letter):
             continue
         for show in designer["Shows"]:
+            if show['Looks'] is None:
+                continue
             for look in show["Looks"]:
-                if look is None:
-                    continue
                 tasks.append(
                     (
                         look["Look_Url"],

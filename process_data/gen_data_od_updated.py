@@ -117,12 +117,13 @@ def detect_objects(
 ):
     """Download images concurrently, perform batched detection, and update dataset."""
 
-    batch_imgs: List[torch.Tensor] = []
-    batch_meta: List[Dict] = []
-    tasks: List[Tuple[str, Dict, object]] = []
+
 
     # Build tasks
     for designer in dataset:
+        batch_imgs: List[torch.Tensor] = []
+        batch_meta: List[Dict] = []
+        tasks: List[Tuple[str, Dict, object]] = []
         if start_letter and not designer.get("Designer", "").startswith(start_letter):
             continue
         for show in designer.get("Shows", []):
@@ -136,24 +137,23 @@ def detect_objects(
                 tasks.append((url, look, tfm))
 
     # Concurrent fetching
-    with ThreadPoolExecutor(max_workers=max_workers) as pool:
-        futures = [pool.submit(_fetch_image, t) for t in tasks]
-        for future in tqdm(as_completed(futures), total=len(futures), desc="Fetching"):
-            result = future.result()
-            if result is None:
-                continue
-            tensor, look_ref = result
-            batch_imgs.append(tensor)
-            batch_meta.append(look_ref)
-            if len(batch_imgs) == batch_size:
-                _infer_batch(model, batch_imgs, batch_meta, device)
-                batch_imgs.clear()
-                batch_meta.clear()
+        with ThreadPoolExecutor(max_workers=max_workers) as pool:
+            futures = [pool.submit(_fetch_image, t) for t in tasks]
+            for future in tqdm(as_completed(futures), total=len(futures), desc="Fetching"):
+                result = future.result()
+                if result is None:
+                    continue
+                tensor, look_ref = result
+                batch_imgs.append(tensor)
+                batch_meta.append(look_ref)
+                if len(batch_imgs) == batch_size:
+                    _infer_batch(model, batch_imgs, batch_meta, device)
+                    batch_imgs.clear()
+                    batch_meta.clear()
 
-    # flush tail
-    if batch_imgs:
-        _infer_batch(model, batch_imgs, batch_meta, device)
-
+        # flush tail
+        if batch_imgs:
+            _infer_batch(model, batch_imgs, batch_meta, device)
 
 # ------------------------------------------------------------
 # Entry point

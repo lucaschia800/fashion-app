@@ -35,6 +35,7 @@ def get_model(num_classes: int, weights_path: str, device: str):
 
     state_dict = torch.load(weights_path, map_location=device)
     model.load_state_dict(state_dict)
+    model.to(device)
     model.eval()
     transforms = FasterRCNN_ResNet50_FPN_V2_Weights.DEFAULT.transforms()
     return model, transforms

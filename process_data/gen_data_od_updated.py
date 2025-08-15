@@ -127,6 +127,8 @@ def detect_objects(
         tasks: List[Tuple[str, Dict, object]] = []
         if start_letter and not designer.get("Designer", "").startswith(start_letter):
             continue
+
+        print(f"Processing {designer.get('Designer', '')}")
         for show in designer.get("Shows", []):
             looks = show.get("Looks")
             if looks is None:
@@ -173,7 +175,7 @@ def main():
     detect_objects(
         model,
         dataset_out,
-        batch_size=64,
+        batch_size=48,
         device=device,
         tfm=transforms,
         max_workers=16,
